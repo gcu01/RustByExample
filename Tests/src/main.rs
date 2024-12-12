@@ -5,7 +5,8 @@ use test5::vector1;
 //mod test3;
 //mod test4;
 mod test5;
-mod test6;
+//mod test6;
+mod test7;
 
 fn main() {
     println!("Hello, world!");

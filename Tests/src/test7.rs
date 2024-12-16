@@ -14,6 +14,17 @@ pub fn longest_with_print<'a, T>(first: &'a str, second: &'a str, x: T) -> &'a s
         }
     }
 
+pub fn opt<T>(a: &T) -> Option<T> 
+    where T: std::fmt::Debug + Copy + std::cmp::PartialOrd<i32> {        
+
+    if *a > 10 {
+        dbg!(Some(*a).unwrap());
+        Some(*a)
+    } else {
+        None
+    }
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -30,5 +41,13 @@ mod test {
         let a: &str = "ana";
         let b: &str = "baba";
         assert_eq!(b, longest_with_print(a, b, 5));
+    }
+
+    #[test]
+    fn opt_test() {
+        let o1: i32 = 12;
+        let o2: i32 = 5;
+        assert_eq!(12, opt(&o1).unwrap());
+        assert_eq!(None, opt(&o2));
     }
 }
